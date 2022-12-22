@@ -1,5 +1,6 @@
-package model;
+package controller;
 
+import model.User;
 import service.DbService;
 
 import javax.servlet.ServletException;
@@ -10,13 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 @WebServlet(value = "/cabinet")
 public class Cabinet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter printWriter = resp.getWriter();
-        Cookie [] cookies= req.getCookies();
+        Cookie[] cookies= req.getCookies();
         String username="";
         if(cookies!=null){
             for (Cookie cookie : cookies) {
